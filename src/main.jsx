@@ -9,6 +9,7 @@ import Home from './Components/Home/Home.jsx'
 import About from './Components/About/About.jsx'
 import User from './Components/User/User.jsx'
 import Contact from './Components/Contact/Contact.jsx'
+import Linkdin from './Components/Linkdin/Linkdin.jsx'
 
 const router=createBrowserRouter([{
   path:'/',
@@ -20,11 +21,14 @@ const router=createBrowserRouter([{
     path:"about",
     element:<About/>
   },{
-     path:"contact",
+    path:"contact",
     element:<Contact/>
   },{
-     path:"Github",
+    path:"Github",
     element:<Github/>
+  },{
+    path:"Linkdin",
+    element:<Linkdin/>
   },{
      path:"user",
     element:<User/>}]

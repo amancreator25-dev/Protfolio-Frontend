@@ -30,17 +30,35 @@ export default function Home() {
 <div className="mx-4 my-[-20px] flex flex-col sm:flex-row items-center justify-between max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-24">
 
   {/* Tech Stack Section */}
-  <section className="text-center justify-items-center sm:text-left mb-10 sm:mb-0 sm:w-1/2">
-    <h2 className="text-2xl sm:text-4xl font-bold mb-8">Tech Stack</h2>
-    <div className="grid grid-cols-3 sm:grid-cols-6 gap-8 justify-center sm:justify-start items-center">
-      <Link to="https://react.dev/"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="React" className="w-16 h-16 mx-auto"/> </Link>
-      <Link to="https://redux.js.org/"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" alt="Redux" className="w-16 h-16 mx-auto"/> </Link>
-      <Link to="https://nodejs.org/en"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" alt="Node.js" className="w-16 h-16 mx-auto"/> </Link>
-      <Link to="https://expressjs.com/"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original.svg" alt="Express" className="w-16 h-16 mx-auto bg-white rounded-lg p-2"/> </Link>
-      <Link to="https://www.mongodb.com/"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg" alt="MongoDB" className="w-16 h-16 mx-auto"/> </Link>
-      <Link to=""> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" className="w-16 h-16 mx-auto"/> </Link>
-    </div>
-  </section>
+ <section className="text-center justify-items-center sm:text-left mb-10 sm:mb-0 sm:w-1/2">
+  <h2 className="text-2xl sm:text-4xl font-bold mb-8">Tech Stack</h2>
+  <div className="grid grid-cols-3 sm:grid-cols-6 gap-8 justify-center sm:justify-start items-center">
+    <a href="https://react.dev/" target="_blank" rel="noopener noreferrer">
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="React" className="w-16 h-16 mx-auto"/>
+    </a>
+
+    <a href="https://redux.js.org/" target="_blank" rel="noopener noreferrer">
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" alt="Redux" className="w-16 h-16 mx-auto"/>
+    </a>
+
+    <a href="https://nodejs.org/en" target="_blank" rel="noopener noreferrer">
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" alt="Node.js" className="w-16 h-16 mx-auto"/>
+    </a>
+
+    <a href="https://expressjs.com/" target="_blank" rel="noopener noreferrer">
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original.svg" alt="Express" className="w-16 h-16 mx-auto bg-white rounded-lg p-2"/>
+    </a>
+
+    <a href="https://www.mongodb.com/" target="_blank" rel="noopener noreferrer">
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg" alt="MongoDB" className="w-16 h-16 mx-auto"/>
+    </a>
+
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer">
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" className="w-16 h-16 mx-auto"/>
+    </a>
+  </div>
+</section>
+
 
   {/* Download Section */}
   <div className="text-center place-content-center sm:text-right sm:w-1/2 space-y-6">

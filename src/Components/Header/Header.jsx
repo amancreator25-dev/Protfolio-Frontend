@@ -7,14 +7,14 @@ export default function Header() {
         <header className="shadow sticky z-50 top-0">
             <nav className="bg-white border-purple-500 px-4 lg:px-6 py-2.5">
                 <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-                    <Link to="/" className="flex items-center ">
+                    <Link to="/" className="flex ml-[-200px] items-center ">
                         <img
                             src={LogoImage}
                             className="mr-3 h-12 max-w-xl "
                             alt="Logo"
                         />
                     </Link>
-                    <div className="flex items-center lg:order-2">
+                    <div className="flex items-center ml-[400px] mr-[-200px] lg:order-2">
                         <Link
                             to="#"
                             className="text-gray-800 hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none"
@@ -29,61 +29,60 @@ export default function Header() {
                         </Link>
                     </div>
                     <div
-                        className="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1"
+                        className="hidden ml-[450px] items-center w-full lg:flex lg:w-auto lg:order-1"
                         id="mobile-menu-2"
                     >
-                        <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+                        <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:items-center lg:space-x-12 lg:mt-0 lg:justify-center">
                             <li>
                                 <NavLink
                                 to="/"
-                                    className={({isActive}) =>
-                                        `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-purple-700" : "text-gray-700"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-purple-700 lg:p-0`
-                                    }
+                                className={({ isActive }) =>
+                                    `block py-2 duration-200 ${
+                                    isActive ? "text-purple-700" : "text-gray-700"
+                                    } hover:text-purple-700`
+                                }
                                 >
-                                    Home
+                                Home
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink
-                                to="/about"
-                                    className={({isActive}) =>
-                                        `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-purple-700" : "text-gray-700"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-purple-700 lg:p-0`
-                                    }
-                                >
-                                    About
+                                <NavLink to="/about" className={({ isActive }) =>
+                                    `block py-2 duration-200 ${
+                                    isActive ? "text-purple-700" : "text-gray-700"
+                                    } hover:text-purple-700`
+                                }>
+                                About
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink
-                                to="/contact"
-                                    className={({isActive}) =>
-                                        `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-purple-700" : "text-gray-700"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-purple-700 lg:p-0`
-                                    }
-                                >
-                                    Contact
+                                <NavLink to="/contact" className={({ isActive }) =>
+                                    `block py-2 duration-200 ${
+                                    isActive ? "text-purple-700" : "text-gray-700"
+                                    } hover:text-purple-700`
+                                }>
+                                Contact
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink
-                                to="/github"
-                                    className={({isActive}) =>
-                                        `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-purple-700" : "text-gray-700"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-purple-700 lg:p-0`
-                                    }
-                                >
-                                    Github
+                                <NavLink to="/github" className={({ isActive }) =>
+                                    `block py-2 duration-200 ${
+                                    isActive ? "text-purple-700" : "text-gray-700"
+                                    } hover:text-purple-700`
+                                }>
+                                Github
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink
-                                to="/Linkdin"
-                                    className={({isActive}) =>
-                                        `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-purple-700" : "text-gray-700"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-purple-700 lg:p-0`
-                                    }
-                                >
-                                    Linkdin
+                                <NavLink to="/linkedin" className={({ isActive }) =>
+                                    `block py-2 duration-200 ${
+                                    isActive ? "text-purple-700" : "text-gray-700"
+                                    } hover:text-purple-700`
+                                }>
+                                LinkedIn
                                 </NavLink>
                             </li>
                         </ul>
+
                     </div>
                 </div>
             </nav>

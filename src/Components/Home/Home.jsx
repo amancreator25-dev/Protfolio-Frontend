@@ -33,12 +33,12 @@ export default function Home() {
   <section className="text-center justify-items-center sm:text-left mb-10 sm:mb-0 sm:w-1/2">
     <h2 className="text-2xl sm:text-4xl font-bold mb-8">Tech Stack</h2>
     <div className="grid grid-cols-3 sm:grid-cols-6 gap-8 justify-center sm:justify-start items-center">
-      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="React" className="w-16 h-16 mx-auto"/>
-      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" alt="Redux" className="w-16 h-16 mx-auto"/>
-      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" alt="Node.js" className="w-16 h-16 mx-auto"/>
-      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original.svg" alt="Express" className="w-16 h-16 mx-auto bg-white rounded-lg p-2"/>
-      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg" alt="MongoDB" className="w-16 h-16 mx-auto"/>
-      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" className="w-16 h-16 mx-auto"/>
+      <Link to="https://react.dev/"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="React" className="w-16 h-16 mx-auto"/> </Link>
+      <Link to="https://redux.js.org/"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" alt="Redux" className="w-16 h-16 mx-auto"/> </Link>
+      <Link to="https://nodejs.org/en"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" alt="Node.js" className="w-16 h-16 mx-auto"/> </Link>
+      <Link to="https://expressjs.com/"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original.svg" alt="Express" className="w-16 h-16 mx-auto bg-white rounded-lg p-2"/> </Link>
+      <Link to="https://www.mongodb.com/"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg" alt="MongoDB" className="w-16 h-16 mx-auto"/> </Link>
+      <Link to=""> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" className="w-16 h-16 mx-auto"/> </Link>
     </div>
   </section>
 

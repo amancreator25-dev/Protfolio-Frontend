@@ -15,7 +15,7 @@ export default function Home() {
                         I am a passionate <span className="font-semibold">Full Stack Developer</span> skilled in 
                         <span className="font-semibold"> React.js, Redux, Node.js, Express.js, and MongoDB</span>. 
                         I love building dynamic, user-friendly applications and exploring new technologies. 
-                        Currently, I am working on exciting projects like <span className="font-semibold">DocYard</span>.
+                        <span className="font-semibold"></span>
                         </p>
                 </div> 
 
@@ -56,6 +56,7 @@ export default function Home() {
     <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer">
       <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" className="w-16 h-16 mx-auto"/>
     </a>
+    
   </div>
 </section>
 

@@ -32,7 +32,7 @@ export default function Header() {
                         className="hidden ml-[450px] items-center w-full lg:flex lg:w-auto lg:order-1"
                         id="mobile-menu-2"
                     >
-                        <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:items-center lg:space-x-12 lg:mt-0 lg:justify-center">
+                        <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:items-center lg:space-x-15 lg:mt-0 lg:justify-center">
                             <li>
                                 <NavLink
                                 to="/"
@@ -73,7 +73,7 @@ export default function Header() {
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/linkedin" className={({ isActive }) =>
+                                <NavLink to="/Linkdin" className={({ isActive }) =>
                                     `block py-2 duration-200 ${
                                     isActive ? "text-purple-700" : "text-gray-700"
                                     } hover:text-purple-700`

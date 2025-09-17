@@ -22,7 +22,7 @@ export default function About() {
         </h2>
 
         <p className="mt-6 text-gray-700 leading-relaxed">
-          I am a passionate <span className="font-semibold">Full-Stack Developer</span> 
+          I am a <span className="font-semibold">Full-Stack Developer </span> 
           with hands-on experience building modern, scalable, and responsive web applications. 
           Skilled in both frontend technologies 
           (<span className="font-medium">React, Redux, Tailwind CSS</span>) and backend 
@@ -31,7 +31,7 @@ export default function About() {
         </p>
 
         <p className="mt-4 text-gray-700 leading-relaxed">
-          Currently, I am pursuing my <span className="font-medium">2nd year of B.Tech in CSE </span> 
+          Currently, I am pursuing my <span className="font-medium">{/*2nd year of */}B.Tech in CSE </span> 
           at <span className="font-medium"> Siksha 'O' Anusandhan University</span>.
         </p>
       </div>

@@ -130,6 +130,19 @@ export default function Contact() {
                                 />
                             </div>
 
+                            <div className="flex flex-col mt-2">
+                                <label htmlFor="tel" className="hidden">
+                                    Descripton
+                                </label>
+                                <input
+                                    type="des"
+                                    name="des"
+                                    id="des"
+                                    placeholder="Description"
+                                    className="h-25 w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-purple-500 focus:outline-none"
+                                />
+                            </div>
+
                             <button
                                 type="submit"
                                 className="md:w-32 bg-purple-700 hover:bg-blue-dark text-white font-bold py-3 px-6 rounded-lg mt-3 hover:bg-purple-600 transition ease-in-out duration-300"

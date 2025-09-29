@@ -46,15 +46,6 @@ export default function Header() {
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/about" className={({ isActive }) =>
-                                    `block py-2 duration-200 ${
-                                    isActive ? "text-purple-700" : "text-gray-700"
-                                    } hover:text-purple-700`
-                                }>
-                                About
-                                </NavLink>
-                            </li>
-                            <li>
                                 <NavLink to="/contact" className={({ isActive }) =>
                                     `block py-2 duration-200 ${
                                     isActive ? "text-purple-700" : "text-gray-700"
@@ -79,6 +70,15 @@ export default function Header() {
                                     } hover:text-purple-700`
                                 }>
                                 Blogs
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/about" className={({ isActive }) =>
+                                    `block py-2 duration-200 ${
+                                    isActive ? "text-purple-700" : "text-gray-700"
+                                    } hover:text-purple-700`
+                                }>
+                                About
                                 </NavLink>
                             </li>
                         </ul>

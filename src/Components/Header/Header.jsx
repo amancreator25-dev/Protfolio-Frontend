@@ -73,12 +73,12 @@ export default function Header() {
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/Linkdin" className={({ isActive }) =>
+                                <NavLink to="/Blogs" className={({ isActive }) =>
                                     `block py-2 duration-200 ${
                                     isActive ? "text-purple-700" : "text-gray-700"
                                     } hover:text-purple-700`
                                 }>
-                                LinkedIn
+                                Blogs
                                 </NavLink>
                             </li>
                         </ul>

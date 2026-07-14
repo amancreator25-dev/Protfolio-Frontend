@@ -9,8 +9,9 @@ function Blogs() {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const data = await getAllBlogs();
-        setBlogs(data);
+        const response = await getAllBlogs();
+
+        setBlogs(response.data || []);
       } catch (err) {
         console.error(err);
       } finally {

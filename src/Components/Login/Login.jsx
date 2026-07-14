@@ -1,4 +1,5 @@
 // src/Components/Login/Login.jsx
+
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
@@ -6,48 +7,91 @@ import { useNavigate } from "react-router-dom";
 
 import { login } from "../../authSlice/authSlice";
 import { loginApi } from "../../RequiredApi/AuthLogin";
-import { getCurrentUser } from "../../RequiredApi/AuthGetCU";
+import { getCurrentUserApi } from "../../RequiredApi/AuthGetCU";
 
 function Login() {
-  const { register, handleSubmit } = useForm();
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+    const {
+        register,
+        handleSubmit,
+        formState: { errors, isSubmitting }
+    } = useForm();
 
-  const onSubmit = async (data) => {
-    try {
-      // 1️⃣ Backend login (sets cookie)
-      await loginApi(data);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
-      // 2️⃣ Fetch logged-in user from cookie
-      const user = await getCurrentUser();
+    const onSubmit = async (data) => {
+        try {
+            // Login and set cookies
+            await loginApi(data);
 
-      // 3️⃣ Store user in Redux
-      dispatch(login({ userData: user }));
+            // Fetch current user
+            const response = await getCurrentUserApi();
 
-      // 4️⃣ Redirect
-      navigate("/");
-    } catch (err) {
-      console.error(err);
-      alert(err.response?.data?.message || "Login failed");
-    }
-  };
+            // Depending on your apiResponse structure
+            const userData = response.data || response;
 
-  return (
-    <div className="auth-form-container">
-      <form onSubmit={handleSubmit(onSubmit)} className="auth-form">
-        <input
-          placeholder="Email or Username"
-          {...register("email", { required: true })}
-        />
-        <input
-          placeholder="Password"
-          type="password"
-          {...register("password", { required: true })}
-        />
-        <button type="submit">Login</button>
-      </form>
-    </div>
-  );
+            // Store in Redux
+            dispatch(
+                login({
+                    userData
+                })
+            );
+
+            // Redirect to home page
+            navigate("/");
+        } catch (error) {
+            console.error(error);
+
+            alert(
+                error?.response?.data?.message ||
+                "Login failed!"
+            );
+        }
+    };
+
+    return (
+        <div className="auth-form-container">
+            <form
+                onSubmit={handleSubmit(onSubmit)}
+                className="auth-form"
+            >
+                <h2>Login</h2>
+
+                <input
+                    type="text"
+                    placeholder="Email or Username"
+                    {...register("email", {
+                        required: "Email is required"
+                    })}
+                />
+
+                {errors.email && (
+                    <p>{errors.email.message}</p>
+                )}
+
+                <input
+                    type="password"
+                    placeholder="Password"
+                    {...register("password", {
+                        required: "Password is required"
+                    })}
+                />
+
+                {errors.password && (
+                    <p>{errors.password.message}</p>
+                )}
+
+                <button
+                    type="submit"
+                    disabled={isSubmitting}
+                >
+                    {isSubmitting
+                        ? "Logging in..."
+                        : "Login"}
+                </button>
+            </form>
+        </div>
+    );
 }
 
 export default Login;

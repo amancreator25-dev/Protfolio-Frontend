@@ -3,7 +3,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 
 import { login } from "../../authSlice/authSlice";
 import { loginApi } from "../../RequiredApi/AuthLogin";
@@ -21,23 +21,18 @@ function Login() {
 
     const onSubmit = async (data) => {
         try {
-            // Login and set cookies
             await loginApi(data);
 
-            // Fetch current user
             const response = await getCurrentUserApi();
 
-            // Depending on your apiResponse structure
             const userData = response.data || response;
 
-            // Store in Redux
             dispatch(
                 login({
                     userData
                 })
             );
 
-            // Redirect to home page
             navigate("/");
         } catch (error) {
             console.error(error);
@@ -50,46 +45,78 @@ function Login() {
     };
 
     return (
-        <div className="auth-form-container">
-            <form
-                onSubmit={handleSubmit(onSubmit)}
-                className="auth-form"
-            >
-                <h2>Login</h2>
+        <div className="min-h-screen flex items-center justify-center bg-[#0f172a] px-6">
+            <div className="w-full max-w-md bg-[#1e293b] rounded-3xl shadow-2xl p-10 border border-slate-700">
 
-                <input
-                    type="text"
-                    placeholder="Email or Username"
-                    {...register("email", {
-                        required: "Email is required"
-                    })}
-                />
+                <h1 className="text-4xl font-bold text-white text-center mb-3">
+                    Welcome Back
+                </h1>
 
-                {errors.email && (
-                    <p>{errors.email.message}</p>
-                )}
+                <p className="text-slate-400 text-center mb-8">
+                    Login to continue to your portfolio dashboard
+                </p>
 
-                <input
-                    type="password"
-                    placeholder="Password"
-                    {...register("password", {
-                        required: "Password is required"
-                    })}
-                />
-
-                {errors.password && (
-                    <p>{errors.password.message}</p>
-                )}
-
-                <button
-                    type="submit"
-                    disabled={isSubmitting}
+                <form
+                    onSubmit={handleSubmit(onSubmit)}
+                    className="space-y-5"
                 >
-                    {isSubmitting
-                        ? "Logging in..."
-                        : "Login"}
-                </button>
-            </form>
+                    <div>
+                        <input
+                            type="text"
+                            placeholder="Email or Username"
+                            className="w-full px-5 py-4 rounded-xl bg-slate-800 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:border-purple-500 transition-all"
+                            {...register("email", {
+                                required: "Email is required"
+                            })}
+                        />
+
+                        {errors.email && (
+                            <p className="text-red-400 text-sm mt-2">
+                                {errors.email.message}
+                            </p>
+                        )}
+                    </div>
+
+                    <div>
+                        <input
+                            type="password"
+                            placeholder="Password"
+                            className="w-full px-5 py-4 rounded-xl bg-slate-800 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:border-purple-500 transition-all"
+                            {...register("password", {
+                                required: "Password is required"
+                            })}
+                        />
+
+                        {errors.password && (
+                            <p className="text-red-400 text-sm mt-2">
+                                {errors.password.message}
+                            </p>
+                        )}
+                    </div>
+
+                    <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full py-4 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-semibold transition-all duration-300 disabled:opacity-60"
+                    >
+                        {isSubmitting
+                            ? "Logging in..."
+                            : "Login"}
+                    </button>
+                </form>
+
+                <p className="text-center text-slate-400 mt-6">
+                    Don't have an account?{" "}
+                    <span className="text-purple-400 cursor-pointer hover:text-purple-300">
+                    <NavLink
+                        to="/User/Register"
+                    >
+                            Register
+                    </NavLink> 
+                        
+                    </span>
+                </p>
+            </div>
         </div>
     );
 }

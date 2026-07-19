@@ -65,14 +65,14 @@ function Login() {
                             type="text"
                             placeholder="Email or Username"
                             className="w-full px-5 py-4 rounded-xl bg-slate-800 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:border-purple-500 transition-all"
-                            {...register("email", {
-                                required: "Email is required"
+                            {...register("login", {
+                                required: "Email or Username is required"
                             })}
                         />
 
-                        {errors.email && (
+                        {errors.login && (
                             <p className="text-red-400 text-sm mt-2">
-                                {errors.email.message}
+                                {errors.login.message}
                             </p>
                         )}
                     </div>
@@ -107,14 +107,12 @@ function Login() {
 
                 <p className="text-center text-slate-400 mt-6">
                     Don't have an account?{" "}
-                    <span className="text-purple-400 cursor-pointer hover:text-purple-300">
                     <NavLink
                         to="/User/Register"
+                        className="text-purple-400 hover:text-purple-300"
                     >
-                            Register
-                    </NavLink> 
-                        
-                    </span>
+                        Register
+                    </NavLink>
                 </p>
             </div>
         </div>

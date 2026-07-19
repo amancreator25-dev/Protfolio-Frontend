@@ -20,29 +20,33 @@ function Login() {
     const navigate = useNavigate();
 
     const onSubmit = async (data) => {
-        try {
-            await loginApi(data);
+    try {
+        console.log("1. Form Submitted");
 
-            const response = await getCurrentUserApi();
+        const loginResponse = await loginApi(data);
+        console.log("2. Login Success", loginResponse);
 
-            const userData = response.data || response;
+        const response = await getCurrentUserApi();
+        console.log("3. Current User", response);
 
-            dispatch(
-                login({
-                    userData
-                })
-            );
+        const userData = response.data || response;
 
-            navigate("/");
-        } catch (error) {
-            console.error(error);
+        dispatch(login({ userData }));
+        console.log("4. Redux Updated");
 
-            alert(
-                error?.response?.data?.message ||
-                "Login failed!"
-            );
-        }
-    };
+        navigate("/");
+        console.log("5. Navigation Done");
+
+    } catch (error) {
+        console.error("ERROR:", error);
+
+        alert(
+            error?.response?.data?.message ||
+            error.message ||
+            "Login failed!"
+        );
+    }
+};
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-[#0f172a] px-6">

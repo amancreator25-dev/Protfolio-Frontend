@@ -45,31 +45,32 @@ export default function Header() {
                                 </NavLink>
                             </>
                         ) : (
-                            <div className="flex items-center gap-4">
+                            <div className="flex items-center gap-3">
 
                                 {/* Avatar */}
-                                <div className="w-10 h-10 rounded-full bg-purple-600 text-white flex items-center justify-center font-bold">
+                                <div className="w-10 h-10 rounded-full bg-purple-600 text-white flex items-center justify-center font-bold text-sm">
                                     {userData?.fullname?.charAt(0).toUpperCase()}
                                 </div>
 
                                 {/* User Info */}
-                                <div className="hidden lg:block">
-                                    <p className="text-sm font-semibold">
+                                <div className="hidden lg:flex flex-col leading-4">
+                                    <span className="text-sm font-semibold whitespace-nowrap">
                                         {userData?.fullname}
-                                    </p>
+                                    </span>
 
-                                    <p className="text-xs text-gray-500">
+                                    <span className="text-xs text-gray-500 whitespace-nowrap">
                                         @{userData?.username}
-                                    </p>
+                                    </span>
                                 </div>
 
                                 {/* Logout */}
                                 <button
                                     onClick={() => dispatch(logout())}
-                                    className="text-white bg-red-500 hover:bg-red-600 font-medium rounded-lg text-sm px-4 py-2"
+                                    className="ml-2 text-white bg-red-500 hover:bg-red-600 font-medium rounded-lg text-sm px-4 py-2"
                                 >
                                     Logout
                                 </button>
+
                             </div>
                         )}
 
@@ -199,3 +200,8 @@ export default function Header() {
         </header>
     );
 }
+
+
+
+
+

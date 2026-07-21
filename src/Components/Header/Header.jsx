@@ -12,53 +12,162 @@ export default function Header() {
     const { status, userData } = useSelector((state) => state.auth);
 
     return (
-        <header className="shadow sticky z-50 top-0">
-            <nav className="bg-white border-purple-500 px-4 lg:px-6 py-2.5">
-                <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
+        <header className="sticky top-0 z-50 shadow bg-white">
+            <nav className="border-b border-gray-200">
+                <div className="max-w-screen-xl mx-auto px-6 h-20 flex items-center justify-between">
 
                     {/* Logo */}
-                    <Link to="/" className="flex ml-[-200px] items-center">
+                    <Link to="/" className="flex items-center">
                         <img
                             src={LogoImage}
-                            className="mr-3 h-12 max-w-xl"
+                            className="h-12 w-auto"
                             alt="Logo"
                         />
                     </Link>
 
-                    {/* Login / Register OR User */}
-                    <div className="flex items-center ml-[400px] mr-[-200px] lg:order-2">
+                    {/* Navigation */}
+                    <ul className="hidden lg:flex items-center gap-10 font-medium">
+
+                        <li>
+                            <NavLink
+                                to="/"
+                                className={({ isActive }) =>
+                                    `${isActive
+                                        ? "text-purple-700"
+                                        : "text-gray-700"
+                                    } hover:text-purple-700 transition`
+                                }
+                            >
+                                Home
+                            </NavLink>
+                        </li>
+
+                        <li>
+                            <NavLink
+                                to="/Blogs"
+                                className={({ isActive }) =>
+                                    `${isActive
+                                        ? "text-purple-700"
+                                        : "text-gray-700"
+                                    } hover:text-purple-700 transition`
+                                }
+                            >
+                                Blogs
+                            </NavLink>
+                        </li>
+
+                        {status && (
+                            <>
+                                <li>
+                                    <NavLink
+                                        to="/create-blog"
+                                        className={({ isActive }) =>
+                                            `${isActive
+                                                ? "text-purple-700"
+                                                : "text-gray-700"
+                                            } hover:text-purple-700 transition`
+                                        }
+                                    >
+                                        Create Blog
+                                    </NavLink>
+                                </li>
+
+                                <li>
+                                    <NavLink
+                                        to="/my-blogs"
+                                        className={({ isActive }) =>
+                                            `${isActive
+                                                ? "text-purple-700"
+                                                : "text-gray-700"
+                                            } hover:text-purple-700 transition`
+                                        }
+                                    >
+                                        My Blogs
+                                    </NavLink>
+                                </li>
+                            </>
+                        )}
+
+                        <li>
+                            <NavLink
+                                to="/contact"
+                                className={({ isActive }) =>
+                                    `${isActive
+                                        ? "text-purple-700"
+                                        : "text-gray-700"
+                                    } hover:text-purple-700 transition`
+                                }
+                            >
+                                Contact
+                            </NavLink>
+                        </li>
+
+                        <li>
+                            <NavLink
+                                to="/github"
+                                className={({ isActive }) =>
+                                    `${isActive
+                                        ? "text-purple-700"
+                                        : "text-gray-700"
+                                    } hover:text-purple-700 transition`
+                                }
+                            >
+                                Github
+                            </NavLink>
+                        </li>
+
+                        <li>
+                            <NavLink
+                                to="/about"
+                                className={({ isActive }) =>
+                                    `${isActive
+                                        ? "text-purple-700"
+                                        : "text-gray-700"
+                                    } hover:text-purple-700 transition`
+                                }
+                            >
+                                About
+                            </NavLink>
+                        </li>
+
+                    </ul>
+
+                    {/* Right Section */}
+                    <div className="flex items-center">
 
                         {!status ? (
-                            <>
+                            <div className="flex items-center gap-3">
+
                                 <NavLink
                                     to="/User/Login"
-                                    className="text-gray-800 hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none"
+                                    className="text-gray-700 hover:text-purple-700 font-medium"
                                 >
-                                    Log in
+                                    Log In
                                 </NavLink>
 
                                 <NavLink
                                     to="/User/Register"
-                                    className="text-white bg-purple-500 hover:bg-purple-700 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2"
+                                    className="bg-purple-600 hover:bg-purple-700 text-white px-5 py-2 rounded-lg font-medium"
                                 >
                                     Get Started
                                 </NavLink>
-                            </>
+
+                            </div>
                         ) : (
-                            <div className="flex items-center gap-3">
+                            <div className="flex items-center gap-4">
 
                                 {/* Avatar */}
-                                <div className="w-10 h-10 rounded-full bg-purple-600 text-white flex items-center justify-center font-bold text-sm">
+                                <div className="w-10 h-10 rounded-full bg-purple-600 text-white flex items-center justify-center font-bold">
                                     {userData?.fullname?.charAt(0).toUpperCase()}
                                 </div>
 
                                 {/* User Info */}
-                                <div className="hidden lg:flex flex-col leading-4">
-                                    <span className="text-sm font-semibold whitespace-nowrap">
+                                <div className="hidden md:flex flex-col leading-4">
+                                    <span className="text-sm font-semibold">
                                         {userData?.fullname}
                                     </span>
 
-                                    <span className="text-xs text-gray-500 whitespace-nowrap">
+                                    <span className="text-xs text-gray-500">
                                         @{userData?.username}
                                     </span>
                                 </div>
@@ -66,7 +175,7 @@ export default function Header() {
                                 {/* Logout */}
                                 <button
                                     onClick={() => dispatch(logout())}
-                                    className="ml-2 text-white bg-red-500 hover:bg-red-600 font-medium rounded-lg text-sm px-4 py-2"
+                                    className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm font-medium"
                                 >
                                     Logout
                                 </button>
@@ -76,132 +185,8 @@ export default function Header() {
 
                     </div>
 
-                    {/* Navigation */}
-                    <div
-                        className="hidden ml-[450px] items-center w-full lg:flex lg:w-auto lg:order-1"
-                        id="mobile-menu-2"
-                    >
-                        <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:items-center lg:space-x-15 lg:mt-0 lg:justify-center">
-
-                            <li>
-                                <NavLink
-                                    to="/"
-                                    className={({ isActive }) =>
-                                        `block py-2 duration-200 ${
-                                            isActive
-                                                ? "text-purple-700"
-                                                : "text-gray-700"
-                                        } hover:text-purple-700`
-                                    }
-                                >
-                                    Home
-                                </NavLink>
-                            </li>
-
-                            <li>
-                                <NavLink
-                                    to="/Blogs"
-                                    className={({ isActive }) =>
-                                        `block py-2 duration-200 ${
-                                            isActive
-                                                ? "text-purple-700"
-                                                : "text-gray-700"
-                                        } hover:text-purple-700`
-                                    }
-                                >
-                                    Blogs
-                                </NavLink>
-                            </li>
-
-                            {status && (
-                                <>
-                                    <li>
-                                        <NavLink
-                                            to="/create-blog"
-                                            className={({ isActive }) =>
-                                                `block py-2 duration-200 ${
-                                                    isActive
-                                                        ? "text-purple-700"
-                                                        : "text-gray-700"
-                                                } hover:text-purple-700`
-                                            }
-                                        >
-                                            Create Blog
-                                        </NavLink>
-                                    </li>
-
-                                    <li>
-                                        <NavLink
-                                            to="/my-blogs"
-                                            className={({ isActive }) =>
-                                                `block py-2 duration-200 ${
-                                                    isActive
-                                                        ? "text-purple-700"
-                                                        : "text-gray-700"
-                                                } hover:text-purple-700`
-                                            }
-                                        >
-                                            My Blogs
-                                        </NavLink>
-                                    </li>
-                                </>
-                            )}
-
-                            <li>
-                                <NavLink
-                                    to="/contact"
-                                    className={({ isActive }) =>
-                                        `block py-2 duration-200 ${
-                                            isActive
-                                                ? "text-purple-700"
-                                                : "text-gray-700"
-                                        } hover:text-purple-700`
-                                    }
-                                >
-                                    Contact
-                                </NavLink>
-                            </li>
-
-                            <li>
-                                <NavLink
-                                    to="/github"
-                                    className={({ isActive }) =>
-                                        `block py-2 duration-200 ${
-                                            isActive
-                                                ? "text-purple-700"
-                                                : "text-gray-700"
-                                        } hover:text-purple-700`
-                                    }
-                                >
-                                    Github
-                                </NavLink>
-                            </li>
-
-                            <li>
-                                <NavLink
-                                    to="/about"
-                                    className={({ isActive }) =>
-                                        `block py-2 duration-200 ${
-                                            isActive
-                                                ? "text-purple-700"
-                                                : "text-gray-700"
-                                        } hover:text-purple-700`
-                                    }
-                                >
-                                    About
-                                </NavLink>
-                            </li>
-
-                        </ul>
-                    </div>
-
                 </div>
             </nav>
         </header>
     );
 }
-
-
-
-
-

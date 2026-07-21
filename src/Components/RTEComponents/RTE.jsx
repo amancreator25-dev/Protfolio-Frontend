@@ -7,6 +7,7 @@ export default function RTE({
     control,
     label,
     defaultValue = "",
+    
 }) {
     return (
         <div className="w-full">
@@ -15,7 +16,6 @@ export default function RTE({
                     {label}
                 </label>
             )}
-
             <Controller
                 name={name}
                 control={control}
@@ -31,43 +31,14 @@ export default function RTE({
                             menubar: true,
 
                             plugins: [
-                                "anchor",
-                                "autolink",
-                                "charmap",
-                                "codesample",
-                                "emoticons",
-                                "image",
-                                "link",
-                                "lists",
-                                "media",
-                                "searchreplace",
-                                "table",
-                                "visualblocks",
-                                "wordcount",
-                                "checklist",
-                                "mediaembed",
-                                "casechange",
-                                "formatpainter",
-                                "pageembed",
-                                "a11ychecker",
-                                "tinymcespellchecker",
-                                "permanentpen",
-                                "powerpaste",
-                                "advtable",
-                                "advcode",
-                                "editimage",
-                                "advtemplate",
-                                "mentions",
-                                "tinycomments",
-                                "tableofcontents",
-                                "footnotes",
-                                "mergetags",
-                                "autocorrect",
-                                "typography",
-                                "inlinecss",
-                                "markdown",
-                            ],
-
+                                    "lists",
+                                    "link",
+                                    "table",
+                                    "code",
+                                    "codesample",
+                                    "searchreplace",
+                                    "wordcount",
+                                ],
                             toolbar:
                                 "undo redo | blocks | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media table | codesample | removeformat",
 

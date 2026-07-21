@@ -18,6 +18,9 @@ import Register from './Components/Register/Register.jsx'
 import Login from './Components/Login/Login.jsx'
 import UserLayout from './UserLayout.jsx'
 
+import CreateBlog from "./Components/CreateBlog/CreateBlog.jsx";
+
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -28,7 +31,11 @@ const router = createBrowserRouter([
       { path: "contact", element: <Contact /> },
       { path: "Github", element: <Github /> },
       { path: "Blogs", element: <Blogs /> },
-      { path: "user", element: <User /> }
+      { path: "user", element: <User /> },
+      {
+      path: "create-blog",
+      element: <CreateBlog />
+    }
     ]
   },
   {
@@ -48,3 +55,5 @@ createRoot(document.getElementById('root')).render(
     </Provider>
   </StrictMode>,
 )
+
+

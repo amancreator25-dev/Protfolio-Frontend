@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import createBlogApi from "../../RequiredApi/CreateBlog";
+import createBlogApi from "../../RequiredApi/BlogApi";
 import Input from "../RTEComponents/Input";
 import Select from "../RTEComponents/Select";
 import Button from "../RTEComponents/Button";

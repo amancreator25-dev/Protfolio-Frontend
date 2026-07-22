@@ -3,25 +3,11 @@ import API from "../api/axiosInstance";
 class CreateBlogApi {
     async createBlog(data) {
         try {
-            const formData = new FormData();
-
-            formData.append("title", data.title);
-            formData.append("content", data.content);
-            formData.append("status", data.status);
-
-            if (data.featuredImage && data.featuredImage.length > 0) {
-                formData.append("featuredImage", data.featuredImage[0]);
-            }
-
-            const response = await API.post(
-                "/api/blog/create",
-                formData,
-                {
-                    headers: {
-                        "Content-Type": "multipart/form-data",
-                    },
-                }
-            );
+            const response = await API.post("/api/blog/create", {
+                title: data.title,
+                content: data.content,
+                status: data.status,
+            });
 
             return response.data;
         } catch (error) {
@@ -32,7 +18,7 @@ class CreateBlogApi {
 
     async getAllBlogs() {
         try {
-            const response = await API.get("/api/blog/");
+            const response = await API.get("/api/blog");
             return response.data;
         } catch (error) {
             console.error("Get Blogs Error:", error);
@@ -42,7 +28,7 @@ class CreateBlogApi {
 
     async getBlogById(id) {
         try {
-            const response = await API.get(`/api/blog/:${id}`);
+            const response = await API.get(`/api/blog/${id}`);
             return response.data;
         } catch (error) {
             console.error("Get Blog Error:", error);
@@ -52,25 +38,11 @@ class CreateBlogApi {
 
     async updateBlog(id, data) {
         try {
-            const formData = new FormData();
-
-            formData.append("title", data.title);
-            formData.append("content", data.content);
-            formData.append("status", data.status);
-
-            // if (data.featuredImage && data.featuredImage.length > 0) {
-            //     formData.append("featuredImage", data.featuredImage[0]);
-            // }
-
-            const response = await API.patch(
-                `/api/blog/:${id}`,
-                formData,
-                {
-                    headers: {
-                        "Content-Type": "multipart/form-data",
-                    },
-                }
-            );
+            const response = await API.patch(`/api/blog/${id}`, {
+                title: data.title,
+                content: data.content,
+                status: data.status,
+            });
 
             return response.data;
         } catch (error) {
@@ -81,7 +53,7 @@ class CreateBlogApi {
 
     async deleteBlog(id) {
         try {
-            const response = await API.delete(`/api/blog/:/${id}`);
+            const response = await API.delete(`/api/blog/${id}`);
             return response.data;
         } catch (error) {
             console.error("Delete Blog Error:", error);

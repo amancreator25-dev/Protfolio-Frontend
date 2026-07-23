@@ -17,7 +17,7 @@ import Blogs from './Components/Blogs/Blogs.jsx'
 import Register from './Components/Register/Register.jsx'
 import Login from './Components/Login/Login.jsx'
 import UserLayout from './UserLayout.jsx'
-
+import MyBlogs from './Components/MyBlog/MyBlog.jsx'
 import CreateBlog from "./Components/CreateBlog/CreateBlog.jsx";
 
 
@@ -35,6 +35,10 @@ const router = createBrowserRouter([
       {
       path: "create-blog",
       element: <CreateBlog />
+    },
+    {
+      path: "MyBlogs",
+      element:<MyBlogs/>
     }
     ]
   },

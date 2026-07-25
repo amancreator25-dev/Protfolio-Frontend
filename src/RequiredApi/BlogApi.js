@@ -36,6 +36,17 @@ class CreateBlogApi {
         }
     }
 
+    async getMyBlogs(id) {
+        try {
+            const response = await API.get(`/api/blog/my/blogs`);
+            return response.data;
+        } catch (error) {
+            console.error("Get Blog Error:", error);
+            throw error;
+        }
+    }
+
+
     async updateBlog(id, data) {
         try {
             const response = await API.patch(`/api/blog/${id}`, {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Loader from "../Loader/Loader.jsx";
-import BlogApi from "../../RequiredApi/BlogApi.js";
+import createBlogApi  from "../../RequiredApi/BlogApi.js";
 
 function MyBlogs() {
     const [blogs, setBlogs] = useState([]);
@@ -9,7 +9,7 @@ function MyBlogs() {
     useEffect(() => {
         const fetchMyBlogs = async () => {
             try {
-                const response = await BlogApi.getMyBlogs();
+                const response = await createBlogApi.getMyBlogs();
 
                 console.log("My Blogs:", response);
 

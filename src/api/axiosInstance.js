@@ -1,18 +1,40 @@
 // src/api/axiosInstance.js
+
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://localhost:4000", // change to your backend base URL
-  withCredentials: true, // IMPORTANT: send/receive cookies
+    baseURL: "http://localhost:4000",
+    withCredentials: true,
 });
 
-// Optional: intercept 401 to auto logout (you can dispatch logout from here if needed)
 API.interceptors.response.use(
-  (res) => res,
-  (err) => {
-    // you can check err.response.status === 401 and handle global logout/navigation
-    return Promise.reject(err);
-  }
-);
+    (response) => response,
+    async (error) => {
+        console.log("Interceptor Status:", error.response?.status);
 
+        const originalRequest = error.config;
+
+        if (
+            error.response?.status === 401 &&
+            !originalRequest._retry
+        ) {
+            console.log("Refreshing token...");
+
+            originalRequest._retry = true;
+
+            try {
+                await API.post("/api/auth/refresh-token");
+                console.log("Token refreshed!");
+
+                return API(originalRequest);
+            } catch (refreshError) {
+                console.log("Refresh failed:", refreshError);
+
+                return Promise.reject(refreshError);
+            }
+        }
+
+        return Promise.reject(error);
+    }
+);
 export default API;

@@ -75,7 +75,7 @@ function MyBlogs() {
                                 </span>
 
                                 <div className="space-x-3">
-                                    <button
+                                    {/* <button
                                         className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
                                     >
                                         Edit
@@ -85,7 +85,7 @@ function MyBlogs() {
                                         className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
                                     >
                                         Delete
-                                    </button>
+                                    </button> */}
                                 </div>
                             </div>
                         </div>

@@ -24,8 +24,8 @@ export default function CreateBlog() {
         try {
             const response = await createBlogApi.createBlog(data);
 
-            console.log("Blog Created Successfully");
-            console.log(response);
+            // console.log("Blog Created Successfully");
+            // console.log(response);
 
             // Later:
             // navigate(`/blog/${response.data._id}`);

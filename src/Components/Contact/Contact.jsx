@@ -55,7 +55,7 @@ export default function Contact() {
 
                             <div className="flex items-center mt-4 text-gray-600">
                                 <div className="ml-4 text-md tracking-wide font-semibold w-40">
-                                    +91 6291777366
+                                    +91 6291375973
                                 </div>
                             </div>
 

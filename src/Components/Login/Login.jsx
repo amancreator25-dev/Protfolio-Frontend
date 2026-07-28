@@ -21,21 +21,21 @@ function Login() {
 
     const onSubmit = async (data) => {
     try {
-        console.log("1. Form Submitted");
+        // console.log("1. Form Submitted");
 
         const loginResponse = await loginApi(data);
-        console.log("2. Login Success", loginResponse);
+        // console.log("2. Login Success", loginResponse);
 
         const response = await getCurrentUserApi();
-        console.log("3. Current User", response);
+        // console.log("3. Current User", response);
 
         const userData = response.data || response;
 
         dispatch(login({ userData }));
-        console.log("4. Redux Updated");
+        // console.log("4. Redux Updated");
 
         navigate("/");
-        console.log("5. Navigation Done");
+        // console.log("5. Navigation Done");
 
     } catch (error) {
         console.error("ERROR:", error);

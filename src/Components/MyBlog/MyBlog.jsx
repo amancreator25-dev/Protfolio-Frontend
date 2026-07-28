@@ -11,7 +11,7 @@ function MyBlogs() {
             try {
                 const response = await createBlogApi.getMyBlogs();
 
-                console.log("My Blogs:", response);
+                // console.log("My Blogs:", response);
 
                 setBlogs(response.data || []);
             } catch (error) {

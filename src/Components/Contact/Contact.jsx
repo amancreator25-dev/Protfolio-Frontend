@@ -1,6 +1,6 @@
 import React from "react";
 import contactImage from "../../assets/1810238.jpg";
-import { sendContactMessage } from "../../RequiredApi/ContactApi";
+import { sendContactMessage } from "../../RequiredApi/contactApi";
 
 export default function Contact() {
 

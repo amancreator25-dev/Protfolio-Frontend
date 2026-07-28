@@ -3,14 +3,14 @@
 import axios from "axios";
 
 const API = axios.create({
-    baseURL: "http://localhost:4000",
+    baseURL: import.meta.env.VITE_API_URL,
     withCredentials: true,
 });
 
 API.interceptors.response.use(
     (response) => response,
     async (error) => {
-        console.log("Interceptor Status:", error.response?.status);
+        // console.log("Interceptor Status:", error.response?.status);
 
         const originalRequest = error.config;
 
@@ -18,17 +18,17 @@ API.interceptors.response.use(
             error.response?.status === 401 &&
             !originalRequest._retry
         ) {
-            console.log("Refreshing token...");
+            // console.log("Refreshing token...");
 
             originalRequest._retry = true;
 
             try {
                 await API.post("/api/auth/refresh-token");
-                console.log("Token refreshed!");
+                // console.log("Token refreshed!");
 
                 return API(originalRequest);
             } catch (refreshError) {
-                console.log("Refresh failed:", refreshError);
+                // console.log("Refresh failed:", refreshError);
 
                 return Promise.reject(refreshError);
             }

@@ -1,4 +1,5 @@
 import React from 'react'
+import aboutImage from "../../assets/10782633_19197803.jpg"
 
 export default function About() {
   return (
@@ -9,7 +10,7 @@ export default function About() {
       {/* Image Section */}
       <div className="md:w-5/12 lg:w-5/12">
         <img
-          src="10782633_19197803.jpg"
+          src={aboutImage}
           alt="About me illustration"
           className="rounded-lg shadow-md"
         />

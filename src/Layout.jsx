@@ -8,10 +8,9 @@ function Layout() {
     <div className="min-h-screen flex flex-col">
       <Header />
 
-      <main className="flex-grow">
-        <Outlet />
-      </main>
-
+        <main className="flex-1 pb-16">
+          <Outlet />
+        </main>
       <Footer />
     </div>
   )

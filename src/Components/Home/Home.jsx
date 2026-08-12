@@ -166,7 +166,6 @@ export default function Home() {
       {/* Footer Heading */}
       <section className="py-12">
         <h1 className="text-center text-3xl md:text-5xl font-medium">
-          Aman
         </h1>
       </section>
 

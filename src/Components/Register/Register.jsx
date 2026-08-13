@@ -31,14 +31,15 @@ function Register() {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-[#0f172a] px-6">
-            <div className="w-full max-w-md bg-[#1e293b] rounded-3xl shadow-2xl p-10 border border-slate-700">
+        <div className="min-h-screen flex items-center justify-center bg-white px-6">
 
-                <h1 className="text-4xl font-bold text-white text-center mb-3">
+            <div className="w-full max-w-md bg-white rounded-3xl shadow-2xl p-10 border border-slate-200">
+
+                <h1 className="text-4xl font-bold text-slate-900 text-center mb-3">
                     Create Account
                 </h1>
 
-                <p className="text-slate-400 text-center mb-8">
+                <p className="text-slate-500 text-center mb-8">
                     Join the portfolio community
                 </p>
 
@@ -46,74 +47,80 @@ function Register() {
                     onSubmit={handleSubmit(onSubmit)}
                     className="space-y-5"
                 >
+
+                    {/* Full Name */}
                     <div>
                         <input
                             type="text"
                             placeholder="Full Name"
-                            className="w-full px-5 py-4 rounded-xl bg-slate-800 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:border-purple-500"
+                            className="w-full px-5 py-4 rounded-xl bg-white border border-slate-300 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all"
                             {...register("fullname", {
                                 required: "Full Name is required"
                             })}
                         />
 
                         {errors.fullname && (
-                            <p className="text-red-400 text-sm mt-2">
+                            <p className="text-red-500 text-sm mt-2">
                                 {errors.fullname.message}
                             </p>
                         )}
                     </div>
 
+                    {/* Username */}
                     <div>
                         <input
                             type="text"
                             placeholder="Username"
-                            className="w-full px-5 py-4 rounded-xl bg-slate-800 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:border-purple-500"
+                            className="w-full px-5 py-4 rounded-xl bg-white border border-slate-300 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all"
                             {...register("username", {
                                 required: "Username is required"
                             })}
                         />
 
                         {errors.username && (
-                            <p className="text-red-400 text-sm mt-2">
+                            <p className="text-red-500 text-sm mt-2">
                                 {errors.username.message}
                             </p>
                         )}
                     </div>
 
+                    {/* Email */}
                     <div>
                         <input
                             type="email"
                             placeholder="Email"
-                            className="w-full px-5 py-4 rounded-xl bg-slate-800 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:border-purple-500"
+                            className="w-full px-5 py-4 rounded-xl bg-white border border-slate-300 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all"
                             {...register("email", {
                                 required: "Email is required"
                             })}
                         />
 
                         {errors.email && (
-                            <p className="text-red-400 text-sm mt-2">
+                            <p className="text-red-500 text-sm mt-2">
                                 {errors.email.message}
                             </p>
                         )}
                     </div>
 
+                    {/* Password */}
                     <div>
                         <input
                             type="password"
                             placeholder="Password"
-                            className="w-full px-5 py-4 rounded-xl bg-slate-800 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:border-purple-500"
+                            className="w-full px-5 py-4 rounded-xl bg-white border border-slate-300 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all"
                             {...register("password", {
                                 required: "Password is required"
                             })}
                         />
 
                         {errors.password && (
-                            <p className="text-red-400 text-sm mt-2">
+                            <p className="text-red-500 text-sm mt-2">
                                 {errors.password.message}
                             </p>
                         )}
                     </div>
 
+                    {/* Register Button */}
                     <button
                         type="submit"
                         disabled={isSubmitting}
@@ -125,15 +132,16 @@ function Register() {
                     </button>
                 </form>
 
-                <p className="text-center text-slate-400 mt-6">
+                <p className="text-center text-slate-500 mt-6">
                     Already have an account?{" "}
                     <Link
                         to="/User/Login"
-                        className="text-purple-400 hover:text-purple-300"
+                        className="text-purple-600 hover:text-purple-700 font-medium"
                     >
                         Login
                     </Link>
                 </p>
+
             </div>
         </div>
     );

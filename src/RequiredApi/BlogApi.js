@@ -1,4 +1,4 @@
-import API from "../api/axiosInstance";
+import API from "../api/axiosInstance.js";
 
 class CreateBlogApi {
     async createBlog(data) {

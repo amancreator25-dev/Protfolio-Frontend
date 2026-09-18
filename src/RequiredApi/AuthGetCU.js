@@ -1,5 +1,5 @@
 // src/RequiredApi/AuthGetCU.js
-import API from "../api/axiosInstance";
+import API from "../api/axiosInstance.js";
 
 export async function getCurrentUserApi() {
   const res = await API.get("/api/auth/current-user"); // adapt route if different

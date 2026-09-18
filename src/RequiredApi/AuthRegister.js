@@ -1,5 +1,5 @@
 // src/RequiredApi/AuthRegister.js
-import API from "../api/axiosInstance";
+import API from "../api/axiosInstance.js";
 
 export async function registerApi(payload) {
   const res = await API.post("/api/auth/register", payload);
